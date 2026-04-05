@@ -3,37 +3,42 @@
 import Link from 'next/link';
 import { useState } from 'react';
 
+const navLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about' },
+  { label: 'Services', href: '/services' },
+];
+
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-secondary/50 transition-all duration-300">
+    <nav className="sticky top-0 z-50 bg-white border-b border-slate-100">
       <div className="container-custom">
-        <div className="flex justify-between items-center py-5">
+        <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group transition-transform duration-300 hover:scale-105">
-            <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg group-hover:shadow-primary/30 transition-all">
-              U
+          <Link href="/" className="flex items-center gap-2.5">
+            <div className="w-9 h-9 bg-primary rounded-lg flex items-center justify-center text-white font-bold text-sm">
+              UP
             </div>
-            <div>
-              <h1 className="font-extrabold text-primary text-xl leading-tight tracking-tight">Urmila</h1>
-              <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-text-light/80">Physiotherapy</p>
+            <div className="leading-tight">
+              <span className="font-bold text-text text-[15px] block">Urmila Physio</span>
+              <span className="text-[11px] text-text-light">Home Care Services</span>
             </div>
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex gap-10 items-center">
-            {['Home', 'About Us', 'Services'].map((item) => (
+          <div className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
               <Link
-                key={item}
-                href={item === 'Home' ? '/' : `/${item.toLowerCase().replace(' ', '')}`}
-                className="relative text-text/80 hover:text-primary font-bold text-sm transition-colors duration-300 group"
+                key={link.label}
+                href={link.href}
+                className="text-sm text-text-light hover:text-text font-medium transition-colors"
               >
-                {item}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                {link.label}
               </Link>
             ))}
-            <Link href="/booking" className="btn-primary !py-3 !px-6 shadow-primary/20">
+            <Link href="/booking" className="btn-primary text-sm">
               Book Appointment
             </Link>
           </div>
@@ -41,39 +46,41 @@ export default function Navigation() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-secondary transition-colors"
-            aria-label="Toggle menu"
+            className="md:hidden p-2 -mr-2 text-text-light hover:text-text transition-colors"
+            aria-label="Toggle navigation"
           >
-            <div className="w-6 h-5 flex flex-col justify-between">
-              <span className={`w-full h-0.5 bg-primary transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-              <span className={`w-full h-0.5 bg-primary transition-all duration-300 ${isOpen ? 'opacity-0' : ''}`}></span>
-              <span className={`w-full h-0.5 bg-primary transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-2.5' : ''}`}></span>
-            </div>
+            {isOpen ? (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M6 18L18 6M6 6l12 12" /></svg>
+            ) : (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 6h16M4 12h16M4 18h16" /></svg>
+            )}
           </button>
         </div>
 
         {/* Mobile Menu */}
-        <div className={`md:hidden overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'max-h-[400px] border-t border-secondary/50 py-6' : 'max-h-0'}`}>
-          <div className="flex flex-col gap-4">
-            {['Home', 'About Us', 'Services'].map((item) => (
+        {isOpen && (
+          <div className="md:hidden border-t border-slate-100 py-4">
+            <div className="flex flex-col gap-1">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className="text-sm text-text-light hover:text-text font-medium py-2.5 px-3 rounded-lg hover:bg-slate-50 transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ))}
               <Link
-                key={item}
-                href={item === 'Home' ? '/' : `/${item.toLowerCase().replace(' ', '')}`}
-                className="text-lg font-bold text-text hover:text-primary transition-colors px-2 py-1"
+                href="/booking"
+                className="btn-primary text-sm text-center mt-3"
                 onClick={() => setIsOpen(false)}
               >
-                {item}
+                Book Appointment
               </Link>
-            ))}
-            <Link
-              href="/booking"
-              className="mt-4 btn-primary text-center shadow-primary/20"
-              onClick={() => setIsOpen(false)}
-            >
-              Book Appointment
-            </Link>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </nav>
   );
