@@ -12,8 +12,8 @@ export default function About() {
       <section className="bg-white border-b border-slate-100 pt-12 pb-14 md:pt-16 md:pb-20">
         <div className="container-custom">
           <p className="text-primary font-semibold text-sm mb-3 tracking-wide uppercase">About Us</p>
-          <h1 className="text-3xl md:text-4xl font-bold text-text mb-3">Meet your physiotherapist</h1>
-          <p className="text-lg text-text-light max-w-xl">Get to know the person behind your treatment and the approach that drives meaningful recovery.</p>
+          <h1 className="text-3xl md:text-4xl font-bold text-text mb-3">Meet our expert team</h1>
+          <p className="text-lg text-text-light max-w-xl">Get to know the professionals behind your treatment and the approach that drives meaningful recovery.</p>
         </div>
       </section>
 
@@ -34,11 +34,11 @@ export default function About() {
 
             {/* Profile Details */}
             <div>
-              <h2 className="text-2xl md:text-3xl font-bold text-text mb-1">Dr. Aman Mishra (PT)</h2>
-              <p className="text-primary font-semibold mb-6">Consultant Physiotherapist</p>
+              <h2 className="text-2xl md:text-3xl font-bold text-text mb-1">Dr. Aman Mishra (PT) & Team</h2>
+              <p className="text-primary font-semibold mb-6">Expert Physiotherapists</p>
 
               <p className="text-text-light leading-relaxed mb-8">
-                With over 3 years of dedicated clinical experience, Dr. Aman Mishra specializes in orthopedic and neurological rehabilitation. He is committed to helping patients recover mobility, reduce pain, and regain independence — all from the comfort of their homes.
+                Led by Dr. Aman Mishra, our expert team brings years of dedicated clinical experience specializing in orthopedic, neurological, and pediatric rehabilitation. We are committed to helping patients recover mobility, reduce pain, and regain independence — all from the comfort of their homes.
               </p>
 
               <div className="space-y-8">
@@ -167,7 +167,7 @@ export default function About() {
             <Link href="/booking" className="px-7 py-3.5 bg-white text-primary font-semibold rounded-lg hover:bg-slate-50 transition-colors inline-flex items-center justify-center shadow-sm text-sm">
               Book Appointment
             </Link>
-            <a href="tel:+919876543210" className="px-7 py-3.5 border border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors inline-flex items-center justify-center gap-2 text-sm">
+            <a href="tel:+918948451008" className="px-7 py-3.5 border border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors inline-flex items-center justify-center gap-2 text-sm">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
               Call Now
             </a>

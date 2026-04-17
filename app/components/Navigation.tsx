@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 
 const navLinks = [
@@ -18,11 +19,17 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5">
-            <div className="w-9 h-9 bg-primary rounded-lg flex items-center justify-center text-white font-bold text-sm">
-              UP
+            <div className="relative w-10 h-10 shrink-0">
+              <Image 
+                src="/images/urmila_physiocare_logo.jpeg" 
+                alt="Urmila PhysioCare" 
+                fill
+                sizes="40px"
+                className="object-contain rounded-md"
+              />
             </div>
             <div className="leading-tight">
-              <span className="font-bold text-text text-[15px] block">Urmila Physio</span>
+              <span className="font-bold text-text text-[15px] block">Urmila PhysioCare</span>
               <span className="text-[11px] text-text-light">Home Care Services</span>
             </div>
           </Link>

@@ -11,6 +11,9 @@ const conditions = [
   'Post-Operative Recovery',
   'Sports Injury',
   'Joint Pain / Arthritis',
+  'Cupping Therapy',
+  'Advance Dry Needle Therapy',
+  'Pediatrics Physiotherapy',
   'General Pain',
   'Other',
 ];
@@ -54,7 +57,7 @@ export default function Booking() {
   };
 
   const whatsappText = `Hi, I'd like to book an appointment.\n\nName: ${formData.name}\nPhone: ${formData.phone}\nCondition: ${formData.condition}\nAddress: ${formData.address}`;
-  const whatsappLink = `https://wa.me/919876543210?text=${encodeURIComponent(whatsappText)}`;
+  const whatsappLink = `https://wa.me/918948451008?text=${encodeURIComponent(whatsappText)}`;
 
   return (
     <main className="min-h-screen flex flex-col">
@@ -210,7 +213,7 @@ export default function Booking() {
                 <h3 className="font-semibold text-text mb-4">Prefer to contact us directly?</h3>
                 <div className="space-y-3">
                   <a
-                    href="tel:+919876543210"
+                    href="tel:+918948451008"
                     className="flex items-center gap-3 p-3 bg-white rounded-lg border border-slate-100 hover:border-slate-200 transition-colors text-sm"
                   >
                     <div className="w-9 h-9 bg-primary/10 rounded-lg flex items-center justify-center text-primary shrink-0">
@@ -218,7 +221,7 @@ export default function Booking() {
                     </div>
                     <div>
                       <p className="font-medium text-text">Call us</p>
-                      <p className="text-text-light text-xs">+91 98765 43210</p>
+                      <p className="text-text-light text-xs">+91 89484 51008</p>
                     </div>
                   </a>
 
@@ -249,7 +252,7 @@ export default function Booking() {
                   </div>
                   <div>
                     <p className="text-sm font-medium text-text">Availability</p>
-                    <p className="text-xs text-text-light mt-0.5">Mon – Sat, 9:00 AM – 6:00 PM</p>
+                    <p className="text-xs text-text-light mt-0.5">Mon – Sat, 9:00 AM – 8:00 PM</p>
                   </div>
                 </div>
 
