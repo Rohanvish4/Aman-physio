@@ -21,7 +21,7 @@ export default function Home() {
                 Professional physiotherapy, delivered to your doorstep
               </h1>
               <p className="text-lg text-text-light mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0">
-                Get expert pain relief, guided rehabilitation, and personalized recovery plans — all from the comfort of your home.
+                Get expert pain relief, guided rehabilitation, and personalized recovery plans - all from the comfort of your home.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
