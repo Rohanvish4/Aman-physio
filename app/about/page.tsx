@@ -2,6 +2,12 @@ import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'About Us',
+  description: 'Meet Dr. Aman Mishra, an expert consultant physiotherapist with years of experience providing clinical-grade home physiotherapy.',
+};
 
 export default function About() {
   return (
@@ -35,7 +41,7 @@ export default function About() {
             {/* Profile Details */}
             <div>
               <h2 className="text-2xl md:text-3xl font-bold text-text mb-1">Dr. Aman Mishra (PT)</h2>
-              <p className="text-primary font-semibold mb-6">Expert Physiotherapists</p>
+              <p className="text-primary font-semibold mb-6">Expert Physiotherapist</p>
 
               <p className="text-text-light leading-relaxed mb-8">
                 Led by Dr. Aman Mishra, our expert team brings years of dedicated clinical experience specializing in orthopedic, neurological, and pediatric rehabilitation. We are committed to helping patients recover mobility, reduce pain, and regain independence — all from the comfort of their homes.

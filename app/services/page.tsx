@@ -1,6 +1,12 @@
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import Link from 'next/link';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Our Services',
+  description: 'Comprehensive home physiotherapy treatments including manual therapy, stroke rehabilitation, pediatrics physiotherapy, and advanced dry needle therapy.',
+};
 
 const services = [
   {
@@ -60,7 +66,7 @@ const services = [
     ),
   },
   {
-    name: 'Advance Dry Needle Therapy',
+    name: 'Advanced Dry Needle Therapy',
     description: 'A modern, science-based intervention for the treatment of pain and dysfunction in musculoskeletal conditions.',
     benefits: ['Muscle relaxation', 'Pain management', 'Improved movement'],
     icon: (

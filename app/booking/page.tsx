@@ -12,7 +12,7 @@ const conditions = [
   'Sports Injury',
   'Joint Pain / Arthritis',
   'Cupping Therapy',
-  'Advance Dry Needle Therapy',
+  'Advanced Dry Needle Therapy',
   'Pediatrics Physiotherapy',
   'General Pain',
   'Other',
