@@ -24,8 +24,8 @@ export default function About() {
             {/* Image */}
             <div className="relative aspect-[3/4] rounded-2xl overflow-hidden bg-slate-100 max-w-md mx-auto md:mx-0 w-full">
               <Image
-                src="/images/hero_physio_home_session_1775396700263.png"
-                alt="Dr. Aman Mishra — Consultant Physiotherapist"
+                src="/images/Aman_mishra_photo.jpeg"
+                alt="Dr. Aman Mishra - Consultant Physiotherapist"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -34,7 +34,7 @@ export default function About() {
 
             {/* Profile Details */}
             <div>
-              <h2 className="text-2xl md:text-3xl font-bold text-text mb-1">Dr. Aman Mishra (PT) & Team</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-text mb-1">Dr. Aman Mishra (PT)</h2>
               <p className="text-primary font-semibold mb-6">Expert Physiotherapists</p>
 
               <p className="text-text-light leading-relaxed mb-8">

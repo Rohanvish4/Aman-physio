@@ -150,7 +150,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* Featured service card */}
             <div className="relative rounded-2xl overflow-hidden min-h-[360px] lg:row-span-3">
-              <Image src="/images/manual_therapy_closeup_1775396728518.png" alt="Manual therapy session" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
+              <Image src="/images/cupping_therapy.jpeg" alt="Manual therapy session" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent"></div>
               <div className="absolute bottom-0 left-0 p-8 w-full">
                 <p className="text-xs font-semibold text-white/70 uppercase tracking-wider mb-2">Featured</p>

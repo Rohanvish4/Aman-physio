@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Urmila PhysioCare",
+  title: "Urmila PhysioCare by Dr Aman Mishra",
   description: "Professional physiotherapy services at your home - Pain relief, recovery & rehabilitation",
 };
 
