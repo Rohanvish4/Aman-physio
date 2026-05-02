@@ -86,6 +86,35 @@ const services = [
   },
 ];
 
+const faqs = [
+  {
+    q: 'What is home physiotherapy in Gorakhpur?',
+    a: 'Home physiotherapy means a certified physiotherapist visits your house to provide professional treatment — no hospital trip needed. Dr. Aman Mishra brings clinical-grade equipment directly to you anywhere in Gorakhpur.',
+  },
+  {
+    q: 'Which areas of Gorakhpur does Urmila PhysioCare serve?',
+    a: 'We cover all of Gorakhpur including Rapti Nagar, Taramandal, Shahpur, Golghar, Mohaddipur, Civil Lines, Basharatpur, Betiahata, Medical College Road, and surrounding localities.',
+  },
+  {
+    q: 'How many sessions are needed for back pain?',
+    a: 'Most acute back pain improves in 6–12 sessions. Chronic conditions may need 15–20 sessions. Dr. Aman creates a personalised plan after an initial home assessment.',
+  },
+  {
+    q: 'Does home physiotherapy help stroke patients?',
+    a: 'Yes — our neuro-rehabilitation programme covers motor recovery, balance training, and functional independence, all at the patient\'s home. Early and regular sessions produce the best results.',
+  },
+  {
+    q: 'What conditions does Urmila PhysioCare treat?',
+    a: 'Back & spine pain, neck & shoulder pain, stroke rehabilitation, knee & joint pain, post-surgical recovery, cervical spondylosis, sports injuries, pediatric physiotherapy, and more.',
+  },
+];
+
+const areas = [
+  'Rapti Nagar', 'Taramandal', 'Shahpur', 'Golghar',
+  'Mohaddipur', 'Civil Lines', 'Basharatpur', 'Betiahata',
+  'Medical College Road', 'Gorakhnath', 'Padrauna Road', 'Jungle Dhusar',
+];
+
 const testimonials = [
   {
     name: 'Ramesh Gupta',
@@ -319,6 +348,51 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Areas We Serve */}
+      <section className="py-16 bg-slate-50 border-y border-slate-100">
+        <div className="container-custom">
+          <div className="text-center max-w-2xl mx-auto mb-8">
+            <p className="badge badge-primary mb-3">Service Areas</p>
+            <h2 className="section-title mb-3">Home physiotherapy across all of Gorakhpur</h2>
+            <p className="section-subtitle">Dr. Aman Mishra visits your home in every locality across Gorakhpur city.</p>
+          </div>
+          <div className="flex flex-wrap justify-center gap-2.5 max-w-2xl mx-auto">
+            {areas.map((area) => (
+              <span key={area} className="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm text-text-light font-medium hover:border-primary/30 hover:text-primary transition-colors">
+                {area}
+              </span>
+            ))}
+          </div>
+          <p className="text-center text-sm text-text-light mt-5">
+            Don&apos;t see your area? <a href="tel:+918948451008" className="text-primary font-medium hover:underline">Call us</a> — we likely cover it.
+          </p>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-white">
+        <div className="container-custom">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <p className="badge badge-primary mb-3">FAQs</p>
+            <h2 className="section-title mb-4">Frequently asked questions</h2>
+            <p className="section-subtitle">Everything you need to know about home physiotherapy in Gorakhpur.</p>
+          </div>
+          <div className="max-w-3xl mx-auto divide-y divide-slate-100">
+            {faqs.map((faq, i) => (
+              <details key={i} className="group py-5 cursor-pointer">
+                <summary className="flex items-center justify-between gap-4 text-sm font-semibold text-text list-none">
+                  {faq.q}
+                  <svg className="w-4 h-4 text-primary shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </summary>
+                <p className="mt-3 text-sm text-text-light leading-relaxed">{faq.a}</p>
+              </details>
             ))}
           </div>
         </div>

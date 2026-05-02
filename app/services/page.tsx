@@ -4,8 +4,22 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Our Services',
-  description: 'Home physiotherapy services in Gorakhpur — back pain, stroke rehabilitation, manual therapy, cupping, dry needle therapy, pediatrics physiotherapy & more by Dr. Aman Mishra.',
+  title: 'Physiotherapy Services at Home in Gorakhpur',
+  description: 'All home physiotherapy services in Gorakhpur by Dr. Aman Mishra (BPT) — back pain, stroke rehabilitation, manual therapy, cupping therapy, dry needle therapy, electrotherapy, pediatric physiotherapy & more. Book a home visit today.',
+  keywords: [
+    "physiotherapy services gorakhpur",
+    "physicare services gorakhpur",
+    "back pain treatment at home gorakhpur",
+    "stroke rehabilitation home gorakhpur",
+    "cupping therapy gorakhpur",
+    "dry needle therapy gorakhpur",
+    "manual therapy gorakhpur",
+    "electrotherapy gorakhpur",
+    "pediatric physiotherapy gorakhpur",
+    "knee pain physiotherapy gorakhpur",
+    "cervical spondylosis treatment gorakhpur",
+    "home physiotherapy services gorakhpur",
+  ],
   alternates: { canonical: 'https://urmilaphysiocare.com/services' },
 };
 

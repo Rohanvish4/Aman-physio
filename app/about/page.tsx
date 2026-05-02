@@ -5,8 +5,17 @@ import Image from 'next/image';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'About Dr. Aman Mishra',
-  description: 'Meet Dr. Aman Mishra (BPT), expert physiotherapist in Gorakhpur. 3+ years of clinical experience in home-based rehabilitation, pain management, and post-surgical recovery.',
+  title: 'Dr. Aman Mishra — Best Physiotherapist in Gorakhpur',
+  description: 'Meet Dr. Aman Mishra (BPT), the best physiotherapist in Gorakhpur. Urmila PhysioCare founder with 3+ years of clinical experience in home physiotherapy, pain management, stroke rehabilitation, and post-surgical recovery.',
+  keywords: [
+    "best physiotherapist gorakhpur",
+    "Dr Aman Mishra physiotherapist",
+    "Dr Aman Mishra BPT gorakhpur",
+    "physiotherapy doctor gorakhpur",
+    "home physiotherapist gorakhpur",
+    "physicare doctor gorakhpur",
+    "Urmila PhysioCare doctor",
+  ],
   alternates: { canonical: 'https://urmilaphysiocare.com/about' },
 };
 
