@@ -143,9 +143,12 @@ SMTP_SECURE=false
 SMTP_USER=your-email@example.com
 SMTP_PASSWORD=your-email-app-password
 SMTP_FROM=your-email@example.com
+SMTP_FROM_NAME=Urmila PhysioCare
 ```
 
-For Gmail, use a Google App Password instead of your normal account password. The booking will still be saved to the sheet if email is temporarily unavailable; the server logs the notification error for troubleshooting.
+For Gmail, use a Google App Password instead of your normal account password. Keep `SMTP_FROM` identical to `SMTP_USER`; the application uses the authenticated SMTP account as the envelope sender to improve deliverability. The booking will still be saved to the sheet if email is temporarily unavailable; the server logs the notification error for troubleshooting.
+
+If Gmail still places messages in Spam, mark one message as **Not spam** and add the sender address to your contacts. For the strongest long-term deliverability, use a custom domain sender with SPF and DKIM configured through a transactional email provider such as Resend, Postmark, or SendGrid.
 
 ## Performance
 

@@ -30,9 +30,13 @@ async function sendBookingNotification({
   const port = Number(process.env.SMTP_PORT || 587);
   const user = process.env.SMTP_USER;
   const password = process.env.SMTP_PASSWORD;
-  const from = process.env.SMTP_FROM || user;
+  const configuredFrom = process.env.SMTP_FROM || user;
+  const fromAddress = configuredFrom?.toLowerCase() === user?.toLowerCase()
+    ? configuredFrom
+    : user;
+  const fromName = process.env.SMTP_FROM_NAME || 'Urmila PhysioCare';
 
-  if (!bookingEmail || !host || !user || !password || !from) {
+  if (!bookingEmail || !host || !user || !password || !fromAddress) {
     console.warn('Booking email notification is not configured.');
     return;
   }
@@ -57,10 +61,11 @@ async function sendBookingNotification({
   const phoneDigits = phone.replace(/\D/g, '');
 
   await transporter.sendMail({
-    from,
+    from: { name: fromName, address: fromAddress },
+    envelope: { from: user, to: bookingEmail },
     to: bookingEmail,
-    replyTo: from,
-    subject: 'New appointment request',
+    replyTo: fromAddress,
+    subject: 'Urmila PhysioCare - New appointment request',
     text: [
       'New appointment request',
       '',
