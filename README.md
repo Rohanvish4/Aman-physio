@@ -133,11 +133,19 @@ The project is compatible with:
 
 ## Environment Variables
 
-Create a `.env.local` file if needed for future integrations:
+Create a `.env.local` file from `.env.example` to enable admin email notifications:
 
 ```
-NEXT_PUBLIC_API_URL=your_api_url
+ADMIN_NOTIFICATION_EMAIL=physiotherapist@example.com
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_SECURE=false
+SMTP_USER=your-email@example.com
+SMTP_PASSWORD=your-email-app-password
+SMTP_FROM=your-email@example.com
 ```
+
+For Gmail, use a Google App Password instead of your normal account password. The booking will still be saved to the sheet if email is temporarily unavailable; the server logs the notification error for troubleshooting.
 
 ## Performance
 
