@@ -58,41 +58,46 @@ async function sendBookingNotification({
   const safeCondition = escapeHtml(condition);
   const safeAddress = escapeHtml(address || 'Not provided');
   const safeMessage = escapeHtml(message || 'None');
-  const phoneDigits = phone.replace(/\D/g, '');
 
   await transporter.sendMail({
     from: { name: fromName, address: fromAddress },
     envelope: { from: user, to: bookingEmail },
     to: bookingEmail,
     replyTo: fromAddress,
-    subject: 'Urmila PhysioCare - New appointment request',
+    subject: 'Appointment request received - Urmila PhysioCare',
     text: [
-      'New appointment request',
+      'Hello,',
       '',
+      'A patient submitted an appointment request through the Urmila PhysioCare website.',
+      '',
+      'Patient details',
+      '---------------',
       `Name: ${name}`,
       `Phone: ${phone}`,
-      `Condition: ${condition}`,
-      `Address: ${address || 'Not provided'}`,
-      `Additional details: ${message || 'None'}`,
-      `Submitted: ${submittedAt}`,
+      `Requested service: ${condition}`,
+      `Home visit address: ${address || 'Not provided'}`,
+      `Additional information: ${message || 'Not provided'}`,
+      `Received: ${submittedAt}`,
       '',
-      `Call patient: tel:+91${phoneDigits}`,
-      `WhatsApp patient: https://wa.me/91${phoneDigits}`,
+      'Please contact the patient to confirm availability and appointment timing.',
+      '',
+      'This is an automated notification from the Urmila PhysioCare appointment form.',
     ].join('\n'),
     html: `
-      <h2>New appointment request</h2>
-      <p><strong>Submitted:</strong> ${submittedAt}</p>
-      <table cellpadding="8" cellspacing="0" border="0">
+      <p>Hello,</p>
+      <p>A patient submitted an appointment request through the Urmila PhysioCare website.</p>
+      <h2 style="font-size: 18px; margin: 24px 0 10px;">Patient details</h2>
+      <table cellpadding="8" cellspacing="0" border="0" style="border-collapse: collapse;">
         <tr><td><strong>Name</strong></td><td>${safeName}</td></tr>
         <tr><td><strong>Phone</strong></td><td>${safePhone}</td></tr>
-        <tr><td><strong>Condition</strong></td><td>${safeCondition}</td></tr>
-        <tr><td><strong>Address</strong></td><td>${safeAddress}</td></tr>
-        <tr><td><strong>Additional details</strong></td><td>${safeMessage}</td></tr>
+        <tr><td><strong>Requested service</strong></td><td>${safeCondition}</td></tr>
+        <tr><td><strong>Home visit address</strong></td><td>${safeAddress}</td></tr>
+        <tr><td><strong>Additional information</strong></td><td>${safeMessage}</td></tr>
+        <tr><td><strong>Received</strong></td><td>${submittedAt}</td></tr>
       </table>
-      <p>
-        <a href="tel:+91${phoneDigits}">Call patient</a>
-        &nbsp;|&nbsp;
-        <a href="https://wa.me/91${phoneDigits}">Message on WhatsApp</a>
+      <p style="margin-top: 24px;">Please contact the patient to confirm availability and appointment timing.</p>
+      <p style="color: #6b7280; font-size: 12px; margin-top: 24px;">
+        This is an automated notification from the Urmila PhysioCare appointment form.
       </p>
     `,
   });
