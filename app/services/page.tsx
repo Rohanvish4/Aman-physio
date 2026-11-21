@@ -25,6 +25,7 @@ export const metadata: Metadata = {
 
 const services = [
   {
+    slug: 'back-spine-pain',
     name: 'Back & Spine Pain',
     description: 'Treatment for lower back pain, sciatica, disc problems, and postural dysfunction using manual therapy and targeted exercises.',
     benefits: ['Pain relief', 'Mobility improvement', 'Core strengthening'],
@@ -35,6 +36,7 @@ const services = [
     ),
   },
   {
+    slug: 'neck-shoulder-pain',
     name: 'Neck & Shoulder Pain',
     description: 'Relief from cervical spondylosis, frozen shoulder, tension headaches, and repetitive strain injuries.',
     benefits: ['Tension relief', 'Range of motion', 'Posture correction'],
@@ -45,6 +47,7 @@ const services = [
     ),
   },
   {
+    slug: 'stroke-rehabilitation',
     name: 'Stroke Rehabilitation',
     description: 'Structured neuro-rehabilitation for stroke patients focusing on motor recovery, balance, and regaining functional independence.',
     benefits: ['Motor recovery', 'Balance training', 'Functional independence'],
@@ -55,6 +58,7 @@ const services = [
     ),
   },
   {
+    slug: 'manual-therapy',
     name: 'Manual Therapy',
     description: 'Hands-on treatment techniques including joint mobilization, soft tissue massage, and myofascial release for pain and stiffness.',
     benefits: ['Tissue healing', 'Joint mobility', 'Pain reduction'],
@@ -65,6 +69,7 @@ const services = [
     ),
   },
   {
+    slug: 'electrotherapy',
     name: 'Electrotherapy',
     description: 'Modern modalities including TENS, ultrasound therapy, and IFT for effective pain management and accelerated tissue repair.',
     benefits: ['Quick relief', 'Reduced inflammation', 'Tissue repair'],
@@ -75,6 +80,7 @@ const services = [
     ),
   },
   {
+    slug: 'home-visit-physiotherapy',
     name: 'Home Visit Physiotherapy',
     description: 'All services delivered directly to your home in Gorakhpur. Professional equipment and expert care at your doorstep.',
     benefits: ['Convenient access', 'Personalized care', 'Comfortable recovery'],
@@ -85,6 +91,7 @@ const services = [
     ),
   },
   {
+    slug: 'cupping-therapy',
     name: 'Cupping Therapy',
     description: 'Applying cups to the skin to create suction, helping with pain, inflammation, blood flow, relaxation and well-being.',
     benefits: ['Pain relief', 'Reduced inflammation', 'Increased blood flow'],
@@ -95,6 +102,7 @@ const services = [
     ),
   },
   {
+    slug: 'dry-needle-therapy',
     name: 'Advanced Dry Needle Therapy',
     description: 'A modern, science-based intervention for the treatment of pain and dysfunction in musculoskeletal conditions.',
     benefits: ['Muscle relaxation', 'Pain management', 'Improved movement'],
@@ -105,6 +113,7 @@ const services = [
     ),
   },
   {
+    slug: 'pediatric-physiotherapy',
     name: 'Pediatrics Physiotherapy',
     description: 'Specialized therapy for infants, children, and adolescents to support physical development and well-being.',
     benefits: ['Motor skill development', 'Strength improvement', 'Enhanced mobility'],
@@ -149,7 +158,7 @@ export default function Services() {
         <div className="container-custom">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {services.map((service, index) => (
-              <div key={index} className="card flex flex-col group hover:border-primary/20">
+              <Link key={index} href={`/services/${service.slug}`} className="card flex flex-col group hover:border-primary/20">
                 <div className="icon-box mb-5 group-hover:bg-primary/15 transition-colors">
                   {service.icon}
                 </div>
@@ -169,7 +178,13 @@ export default function Services() {
                     ))}
                   </ul>
                 </div>
-              </div>
+                <span className="mt-5 text-sm font-semibold text-primary inline-flex items-center gap-1">
+                  View details
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </span>
+              </Link>
             ))}
           </div>
 

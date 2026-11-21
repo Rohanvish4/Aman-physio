@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import Link from 'next/link';
+import { trackLead } from '../lib/analytics';
 
 const conditions = [
   'Back Pain',
@@ -51,6 +52,10 @@ export default function Booking() {
       if (res.ok) {
         setStatus('success');
         setFormData({ name: '', phone: '', address: '', condition: '', message: '' });
+        trackLead('website_form', {
+          form_name: 'booking_page',
+          condition: formData.condition,
+        });
       } else {
         setStatus('error');
       }

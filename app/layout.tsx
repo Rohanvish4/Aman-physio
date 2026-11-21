@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Analytics from "./components/Analytics";
 import "./globals.css";
 
 const inter = Inter({
@@ -258,6 +259,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.className} bg-white text-text antialiased`}>
+        <Analytics />
         {children}
       </body>
     </html>
