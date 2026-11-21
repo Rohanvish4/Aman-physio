@@ -7,6 +7,7 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/api/',
     },
+    host: 'https://urmilaphysiocare.com',
     sitemap: 'https://urmilaphysiocare.com/sitemap.xml',
   };
 }
