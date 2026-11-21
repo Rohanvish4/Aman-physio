@@ -148,6 +148,30 @@ SMTP_FROM_NAME=Urmila PhysioCare
 
 For Gmail, use a Google App Password instead of your normal account password. Keep `SMTP_FROM` identical to `SMTP_USER`; the application uses the authenticated SMTP account as the envelope sender to improve deliverability. The booking will still be saved to the sheet if email is temporarily unavailable; the server logs the notification error for troubleshooting.
 
+## Analytics and Conversion Tracking
+
+Copy `.env.example` to `.env.local`, then add a Google Analytics 4 measurement ID:
+
+```bash
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+```
+
+Optionally enable Microsoft Clarity:
+
+```bash
+NEXT_PUBLIC_CLARITY_PROJECT_ID=your-project-id
+```
+
+The website automatically tracks:
+- Page views
+- Call button clicks
+- WhatsApp button clicks
+- Booking page calls-to-action
+- Booking form starts
+- Successful form submissions
+
+Successful booking submissions are sent to GA4 as `generate_lead` conversion events. Mark this event as a conversion in Google Analytics under **Admin > Events**.
+
 If Gmail still places messages in Spam, mark one message as **Not spam** and add the sender address to your contacts. For the strongest long-term deliverability, use a custom domain sender with SPF and DKIM configured through a transactional email provider such as Resend, Postmark, or SendGrid.
 
 ## Performance

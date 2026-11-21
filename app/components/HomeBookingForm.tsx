@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { trackLead } from '../lib/analytics';
 
 const conditions = [
   'Back Pain',
@@ -49,8 +50,13 @@ export default function HomeBookingForm() {
         return;
       }
 
+      const submittedCondition = formData.condition;
       setFormData({ name: '', phone: '', condition: '', address: '' });
       setStatus('success');
+      trackLead('website_form', {
+        form_name: 'homepage_booking',
+        condition: submittedCondition,
+      });
     } catch {
       setStatus('error');
     }
