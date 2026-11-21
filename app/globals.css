@@ -19,6 +19,31 @@
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  @supports (-webkit-touch-callout: none) {
+    body {
+      -webkit-tap-highlight-color: transparent;
+    }
+  }
+
+  @media (max-width: 767px) {
+    body {
+      padding-bottom: calc(4.25rem + env(safe-area-inset-bottom));
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 
   img, video {
@@ -44,15 +69,15 @@
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary hover:bg-primary-dark text-white font-semibold rounded-lg transition-all duration-200 shadow-sm hover:shadow-md text-sm leading-none;
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 min-h-12 bg-primary hover:bg-primary-dark text-white font-semibold rounded-xl transition-all duration-200 shadow-sm hover:shadow-md text-sm leading-none;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-white border border-slate-200 text-text font-semibold rounded-lg hover:border-primary hover:text-primary transition-all duration-200 text-sm leading-none;
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 min-h-12 bg-white border border-slate-200 text-text font-semibold rounded-xl hover:border-primary hover:text-primary transition-all duration-200 text-sm leading-none;
   }
 
   .btn-ghost {
-    @apply inline-flex items-center justify-center gap-2 px-6 py-3 border border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-200 text-sm leading-none;
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 min-h-12 border border-white/30 text-white font-semibold rounded-xl hover:bg-white/10 transition-all duration-200 text-sm leading-none;
   }
 
   .container-custom {
@@ -60,7 +85,7 @@
   }
 
   .section-title {
-    @apply text-3xl sm:text-4xl font-bold text-text tracking-tight leading-tight;
+    @apply text-2xl sm:text-3xl md:text-4xl font-bold text-text tracking-tight leading-tight;
   }
 
   .section-subtitle {
@@ -68,7 +93,7 @@
   }
 
   .card {
-    @apply bg-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:shadow-md transition-all duration-200;
+    @apply bg-white rounded-2xl p-5 sm:p-6 border border-slate-100 shadow-sm hover:shadow-md transition-all duration-200;
   }
 
   .badge {
@@ -80,7 +105,7 @@
   }
 
   .input-field {
-    @apply w-full px-4 py-3 border border-slate-200 rounded-xl text-sm bg-white text-text placeholder:text-slate-400 focus:border-primary focus:ring-2 focus:ring-primary/10 focus:outline-none transition-all duration-150;
+    @apply w-full min-h-12 px-4 py-3 border border-slate-200 rounded-xl text-base sm:text-sm bg-white text-text placeholder:text-slate-400 focus:border-primary focus:ring-2 focus:ring-primary/10 focus:outline-none transition-all duration-150;
   }
 
   .page-header {
@@ -88,7 +113,7 @@
   }
 
   .icon-box {
-    @apply w-11 h-11 bg-primary/10 rounded-xl flex items-center justify-center text-primary shrink-0;
+    @apply w-12 h-12 bg-gradient-to-br from-primary/15 to-primary/5 ring-1 ring-inset ring-primary/10 rounded-2xl flex items-center justify-center text-primary shrink-0;
   }
 }
 

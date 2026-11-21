@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Analytics from "./components/Analytics";
+import MobileActions from "./components/MobileActions";
 import "./globals.css";
 
 const inter = Inter({
@@ -12,10 +13,10 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL('https://urmilaphysiocare.com'),
   title: {
-    default: "Urmila PhysioCare | Physiotherapy at Home in Gorakhpur | Dr. Aman Mishra",
+    default: "Physiotherapy in Gorakhpur | Home Physiotherapy by Dr. Aman Mishra",
     template: "%s | Urmila PhysioCare Gorakhpur"
   },
-  description: "Best home physiotherapy in Gorakhpur by Dr. Aman Mishra (BPT). Urmila PhysioCare (PhysiCare Gorakhpur) — expert pain relief, stroke rehab, post-surgical recovery & manual therapy at your doorstep. Call +91 89484 51008.",
+  description: "Physiotherapy in Gorakhpur by Dr. Aman Mishra (BPT). Urmila PhysioCare provides home physiotherapy for back pain, neck pain, stroke rehabilitation, joint pain and post-surgical recovery. Call +91 89484 51008.",
   keywords: [
     "physicare",
     "physicare gorakhpur",
@@ -53,6 +54,11 @@ export const metadata: Metadata = {
   authors: [{ name: "Dr. Aman Mishra", url: "https://urmilaphysiocare.com/about" }],
   creator: "Urmila PhysioCare",
   publisher: "Urmila PhysioCare",
+  category: "Physiotherapy",
+  applicationName: "Urmila PhysioCare",
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+  },
   openGraph: {
     title: "Urmila PhysioCare | Physiotherapy at Home in Gorakhpur",
     description: "Expert physiotherapist Dr. Aman Mishra provides clinical-grade home physiotherapy in Gorakhpur — pain relief, stroke rehab, post-surgical recovery & more. PhysiCare Gorakhpur.",
@@ -153,27 +159,6 @@ const jsonLd = {
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Electrotherapy", description: "TENS, ultrasound, and IFT therapy for pain management in Gorakhpur." } },
     ],
   },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "5",
-    reviewCount: "500",
-    bestRating: "5",
-    worstRating: "1",
-  },
-  review: [
-    {
-      "@type": "Review",
-      author: { "@type": "Person", name: "Ramesh Gupta" },
-      reviewRating: { "@type": "Rating", ratingValue: "5" },
-      reviewBody: "After my knee surgery, Dr. Aman visited daily and helped me walk again within weeks. The home visit service made recovery so much easier.",
-    },
-    {
-      "@type": "Review",
-      author: { "@type": "Person", name: "Sunita Sharma" },
-      reviewRating: { "@type": "Rating", ratingValue: "5" },
-      reviewBody: "My mother had a stroke and Dr. Aman's neuro-rehabilitation sessions at home have been life-changing. Very professional and caring.",
-    },
-  ],
   hasMap: "https://maps.google.com/?q=Gorakhpur,UP",
   sameAs: [],
 };
@@ -241,6 +226,52 @@ const faqJsonLd = {
   ],
 };
 
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Physician",
+  name: "Dr. Aman Mishra",
+  jobTitle: "Physiotherapist",
+  description: "BPT physiotherapist providing home-based orthopedic, neurological and pediatric rehabilitation in Gorakhpur.",
+  url: "https://urmilaphysiocare.com/about",
+  image: "https://urmilaphysiocare.com/images/Aman_mishra_photo.jpeg",
+  worksFor: {
+    "@type": "MedicalBusiness",
+    name: "Urmila PhysioCare",
+    url: "https://urmilaphysiocare.com",
+  },
+  knowsAbout: [
+    "Physiotherapy",
+    "Back pain treatment",
+    "Stroke rehabilitation",
+    "Post-surgical rehabilitation",
+    "Manual therapy",
+    "Sports physiotherapy",
+  ],
+  areaServed: {
+    "@type": "City",
+    name: "Gorakhpur",
+  },
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Urmila PhysioCare",
+  alternateName: ["PhysiCare Gorakhpur", "Urmila Physicare"],
+  url: "https://urmilaphysiocare.com",
+  inLanguage: "en-IN",
+  publisher: {
+    "@type": "Organization",
+    name: "Urmila PhysioCare",
+    url: "https://urmilaphysiocare.com",
+  },
+  potentialAction: {
+    "@type": "SearchAction",
+    target: "https://urmilaphysiocare.com/services?search={search_term_string}",
+    "query-input": "required name=search_term_string",
+  },
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -257,10 +288,25 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
       </head>
       <body className={`${inter.className} bg-white text-text antialiased`}>
+        <a
+          href="#main-content"
+          className="fixed left-4 top-3 z-[100] -translate-y-20 rounded-lg bg-primary px-4 py-3 text-sm font-semibold text-white shadow-lg transition-transform focus:translate-y-0"
+        >
+          Skip to main content
+        </a>
         <Analytics />
-        {children}
+        <div id="main-content">{children}</div>
+        <MobileActions />
       </body>
     </html>
   );

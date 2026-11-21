@@ -35,6 +35,16 @@ export default function Navigation() {
     return () => { document.body.style.overflow = ''; };
   }, [isOpen]);
 
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, []);
+
   return (
     <nav className={`sticky top-0 z-50 bg-white transition-shadow duration-200 ${scrolled ? 'shadow-sm' : 'border-b border-slate-100'}`}>
       <div className="container-custom">
@@ -50,7 +60,7 @@ export default function Navigation() {
                 className="object-contain rounded-lg"
               />
             </div>
-            <div className="leading-tight hidden xs:block">
+            <div className="leading-tight">
               <span className="font-bold text-text text-[14px] block tracking-tight">Urmila PhysioCare</span>
               <span className="text-[10px] text-text-light tracking-wide">Gorakhpur</span>
             </div>
@@ -95,7 +105,7 @@ export default function Navigation() {
           <div className="md:hidden flex items-center gap-2">
             <a
               href="tel:+918948451008"
-              className="p-2 text-primary"
+              className="w-11 h-11 flex items-center justify-center rounded-xl text-primary hover:bg-primary/5"
               aria-label="Call us"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -104,7 +114,7 @@ export default function Navigation() {
             </a>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 -mr-1 text-text-light hover:text-text transition-colors rounded-lg"
+              className="w-11 h-11 -mr-2 flex items-center justify-center text-text-light hover:text-text hover:bg-slate-50 transition-colors rounded-xl"
               aria-label={isOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={isOpen}
             >
@@ -124,8 +134,8 @@ export default function Navigation() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden border-t border-slate-100 bg-white animate-slide-down">
-          <div className="container-custom py-4 space-y-1">
+        <div className="md:hidden fixed inset-x-0 top-16 bottom-0 z-40 overflow-y-auto border-t border-slate-100 bg-white animate-slide-down">
+          <div className="container-custom py-5 space-y-1">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (

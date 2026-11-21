@@ -1,10 +1,21 @@
-'use client';
-
 import Link from 'next/link';
 import Image from 'next/image';
+import type { Metadata } from 'next';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import HomeBookingForm from './components/HomeBookingForm';
+
+export const metadata: Metadata = {
+  title: 'Physiotherapy in Gorakhpur',
+  description: 'Best physiotherapy at home in Gorakhpur for back pain, neck pain, stroke rehabilitation, joint pain and post-surgical recovery by Dr. Aman Mishra (BPT).',
+  alternates: { canonical: 'https://urmilaphysiocare.com/' },
+  openGraph: {
+    title: 'Physiotherapy in Gorakhpur | Home Physiotherapy by Dr. Aman Mishra',
+    description: 'Professional physiotherapy at your doorstep across Gorakhpur. Call or WhatsApp to book a home visit.',
+    url: 'https://urmilaphysiocare.com/',
+    type: 'website',
+  },
+};
 
 const PHONE = '+918948451008';
 const WA_BASE = 'https://wa.me/918948451008';
@@ -22,8 +33,11 @@ const features = [
     title: 'Certified Physiotherapist',
     desc: 'Dr. Aman Mishra (BPT) brings years of clinical expertise in orthopedic, neurological, and pediatric rehabilitation.',
     icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.7" viewBox="0 0 24 24" aria-hidden="true">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 2.75 19 5.4v5.85c0 4.25-2.84 7.94-7 9.45-4.16-1.51-7-5.2-7-9.45V5.4l7-2.65Z" />
+        <circle cx="12" cy="10" r="2.5" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M8.9 15.2c.55-1.22 1.6-1.85 3.1-1.85s2.55.63 3.1 1.85M9.25 17.7l.75-1.75M14.75 17.7l-.75-1.75" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 7.5v5M9.5 10h5" />
       </svg>
     ),
   },
@@ -31,8 +45,11 @@ const features = [
     title: 'Treatment at Your Home',
     desc: 'No travel, no waiting rooms. We bring professional-grade equipment and expert care directly to your doorstep in Gorakhpur.',
     icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.7" viewBox="0 0 24 24" aria-hidden="true">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 10.25 12 3l8.25 7.25" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M5.5 9v11h13V9M9.25 20v-6h5.5v6" />
+        <circle cx="17.25" cy="6.25" r="3.25" fill="currentColor" stroke="none" opacity=".12" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 4.25v4M15.25 6.25h4" />
       </svg>
     ),
   },
@@ -40,8 +57,10 @@ const features = [
     title: 'Faster Recovery',
     desc: 'Evidence-based, personalized treatment plans tailored to your condition — so you get back to normal life sooner.',
     icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.7" viewBox="0 0 24 24" aria-hidden="true">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 12h3.1l2.15-5.2 4.1 10.4 2.45-6.2H21" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5h15M4.5 4.5v15" />
+        <circle cx="20.8" cy="11" r="1.8" fill="currentColor" stroke="none" />
       </svg>
     ),
   },
@@ -151,24 +170,24 @@ function StarRating({ count }: { count: number }) {
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex flex-col pb-16 md:pb-0">
+    <main className="min-h-screen flex flex-col">
       <Navigation />
 
       {/* Hero Section */}
-      <section className="bg-white pt-14 pb-20 md:pt-20 md:pb-28 overflow-hidden">
+      <section className="bg-white pt-9 pb-14 sm:pt-14 sm:pb-20 md:pt-20 md:pb-28 overflow-hidden">
         <div className="container-custom">
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+          <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
             {/* Text Content */}
             <div className="flex-1 text-center lg:text-left max-w-xl mx-auto lg:mx-0">
               <div className="inline-flex items-center gap-2 bg-primary/8 text-primary px-3.5 py-1.5 rounded-full text-xs font-semibold mb-5 tracking-wide uppercase">
                 <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
                 Home Physiotherapy · Gorakhpur
               </div>
-              <h1 className="text-[2.4rem] md:text-5xl lg:text-[3.2rem] font-bold mb-5 leading-[1.12] text-text tracking-tight text-balance">
+              <h1 className="text-[2.15rem] sm:text-[2.4rem] md:text-5xl lg:text-[3.2rem] font-bold mb-4 sm:mb-5 leading-[1.12] text-text tracking-tight text-balance">
                 Expert physiotherapy,{' '}
                 <span className="text-primary">at your doorstep</span>
               </h1>
-              <p className="text-base sm:text-lg text-text-light mb-8 leading-relaxed">
+              <p className="text-[15px] sm:text-lg text-text-light mb-6 sm:mb-8 leading-relaxed">
                 Dr. Aman Mishra (BPT) provides clinical-grade pain relief, rehabilitation, and recovery — all from the comfort of your home in Gorakhpur.
               </p>
 
@@ -187,7 +206,7 @@ export default function Home() {
                 </a>
               </div>
 
-              <div className="mt-9 flex flex-wrap items-center justify-center lg:justify-start gap-5 text-sm text-text-light">
+              <div className="mt-7 sm:mt-9 grid grid-cols-1 gap-2 text-left max-w-xs mx-auto sm:flex sm:max-w-none sm:flex-wrap sm:justify-center lg:justify-start sm:text-sm sm:gap-5 text-text-light">
                 {['Home visits across Gorakhpur', 'BPT certified', '500+ patients treated'].map((t) => (
                   <span key={t} className="flex items-center gap-1.5">
                     <svg className="w-4 h-4 text-primary shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -463,40 +482,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Floating WhatsApp Button */}
-      <a
-        href={WA_BOOKING}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-20 md:bottom-5 right-5 z-40 w-14 h-14 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-200 hover:scale-105"
-        aria-label="Book via WhatsApp"
-      >
-        <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-        </svg>
-      </a>
-
-      {/* Mobile quick actions */}
-      <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 md:hidden bg-white border-t border-slate-200 shadow-[0_-4px_16px_rgba(15,23,42,0.12)]">
-        <a
-          href={`tel:${PHONE}`}
-          className="flex items-center justify-center gap-2 min-h-14 bg-primary text-white text-sm font-semibold"
-        >
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498A1 1 0 0119 7.72V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-          </svg>
-          Call Now
-        </a>
-        <a
-          href="#appointment"
-          className="flex items-center justify-center gap-2 min-h-14 bg-primary-dark text-white text-sm font-semibold"
-        >
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 5h14a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2Z" />
-          </svg>
-          Book Appointment
-        </a>
-      </div>
 
       <Footer />
     </main>

@@ -4,7 +4,7 @@ import Image from 'next/image';
 export default function Footer() {
   return (
     <footer className="bg-slate-900 text-slate-300">
-      <div className="container-custom pt-14 pb-10">
+      <div className="container-custom pt-12 sm:pt-14 pb-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
@@ -37,16 +37,16 @@ export default function Footer() {
             <h4 className="font-semibold text-white text-sm mb-4">Services</h4>
             <ul className="space-y-2.5">
               {[
-                'Back & Spine Pain',
-                'Neck & Shoulder Pain',
-                'Stroke Rehabilitation',
-                'Manual Therapy',
-                'Cupping Therapy',
-                'Pediatrics Physiotherapy',
-              ].map((s) => (
-                <li key={s}>
-                  <Link href="/services" className="text-sm text-slate-400 hover:text-white transition-colors">
-                    {s}
+                ['Back & Spine Pain', '/services/back-spine-pain'],
+                ['Neck & Shoulder Pain', '/services/neck-shoulder-pain'],
+                ['Stroke Rehabilitation', '/services/stroke-rehabilitation'],
+                ['Manual Therapy', '/services/manual-therapy'],
+                ['Cupping Therapy', '/services/cupping-therapy'],
+                ['Pediatrics Physiotherapy', '/services/pediatric-physiotherapy'],
+              ].map(([label, href]) => (
+                <li key={label}>
+                  <Link href={href} className="text-sm text-slate-400 hover:text-white transition-colors">
+                    {label}
                   </Link>
                 </li>
               ))}
@@ -59,6 +59,7 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {[
                 { label: 'Home', href: '/' },
+                { label: 'Physiotherapy in Gorakhpur', href: '/gorakhpur' },
                 { label: 'About Dr. Aman', href: '/about' },
                 { label: 'All Services', href: '/services' },
                 { label: 'Book Appointment', href: '/booking' },

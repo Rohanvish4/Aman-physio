@@ -40,6 +40,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
+    {
+      url: `${baseUrl}/gorakhpur`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
     ...serviceSlugs.map((slug) => ({
       url: `${baseUrl}/services/${slug}`,
       lastModified: now,

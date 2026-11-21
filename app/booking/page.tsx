@@ -85,9 +85,9 @@ export default function Booking() {
       </section>
 
       {/* Booking Content */}
-      <section className="py-14 md:py-20 bg-white flex-1">
+      <section className="py-10 sm:py-14 md:py-20 bg-white flex-1">
         <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-12 lg:gap-16">
 
             {/* Form */}
             <div className="lg:col-span-2">
@@ -113,7 +113,7 @@ export default function Booking() {
                 </svg>
               </a>
 
-              <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+              <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
                     <label htmlFor="booking-name" className="block text-sm font-medium text-text mb-1.5">
@@ -149,6 +149,8 @@ export default function Booking() {
                         className="input-field pl-12"
                         autoComplete="tel"
                         maxLength={10}
+                        pattern="[0-9]{10}"
+                        title="Enter a 10-digit Indian mobile number"
                         inputMode="numeric"
                       />
                     </div>

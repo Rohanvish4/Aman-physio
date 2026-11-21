@@ -99,6 +99,8 @@ export default function HomeBookingForm() {
               autoComplete="tel"
               inputMode="numeric"
               maxLength={10}
+              pattern="[0-9]{10}"
+              title="Enter a 10-digit Indian mobile number"
               required
               className="input-field pl-12"
             />
@@ -154,12 +156,12 @@ export default function HomeBookingForm() {
       </button>
 
       {status === 'success' && (
-        <p className="mt-4 p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-sm text-emerald-800">
+        <p role="status" aria-live="polite" className="mt-4 p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-sm text-emerald-800">
           Thanks! We&apos;ll call you within 2 hours to confirm your home visit.
         </p>
       )}
       {status === 'error' && (
-        <p className="mt-4 p-3 rounded-xl bg-red-50 border border-red-200 text-sm text-red-800">
+        <p role="alert" aria-live="assertive" className="mt-4 p-3 rounded-xl bg-red-50 border border-red-200 text-sm text-red-800">
           We couldn&apos;t submit your request. Please call us at +91 89484 51008.
         </p>
       )}
